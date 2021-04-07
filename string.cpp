@@ -1,19 +1,16 @@
-// C++ program to demonstrate getline() function
-
-#include <iostream>
-#include <string>
+#include<iostream>
 using namespace std;
 
 int main()
 {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    string str;
-
-    cout << "Please enter your name: \n";
-    getline(cin, str);
-    cout << "Hello, " << str
-         << " welcome to GfG !\n";
-
-    return 0;
+int k='A', cnt=0;
+for(int i='A'; i<'Z'; i++)
+{
+++cnt;
 }
+cout<<sizeof(k);
+cout<<cnt;
+return 0;
+}
+
+
