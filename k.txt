@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define mod    1000000007
+#define mp     make_pair
+#define pb     push_back
+#define ps     fixed<<setprecision(y)<<x
+#define inf    1e18
+#define w(t)   int t; cin>>t; while(t--)
+typedef long long int ll;
+typedef unsigned long long ull;
+inline int gcd(int a, int b) {return (b ? gcd(b, a % b) : a);}
+inline int lcm(int a, int b) {return a / gcd(a, b) * b;}
+inline int fpow(ll n, ll k, int p) {ll r = 1; for (; k; k >>= 1) {if (k & 1) r = r * n % p; n = n * n % p;} return r;}
+mt19937        rng(chrono::steady_clock::now().time_since_epoch().count());
+void fastio()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+}
+int main() {
+	fastio();
+	w(t) {
+		int n; cin >> n;
+		vector<string> res;
+		vector<string> ans;
+		for (int hr = 0; hr < 12; hr++) {
+			for (int m = 59; m >= 0; m--) {
+				if (__builtin_popcount(hr) + __builtin_popcount(m) == n) {
+					string s = to_string(hr) + ":" + ((m < 10) ? "0" : "") + to_string(m);
+					res.pb(s);
+				}
+			}
+		}
+		int i = 0;
+		while (i < res.size()) {
+			string temp = res[i];
+			if (temp[0] != '0') break;
+			ans.pb(res[i]);
+			i++;
+		}
+		int j = res.size() - 1;
+		while (j >= i) {
+			string temp = res[j];
+			ans.pb(temp);
+			j--;
+		}
+		if (ans.size() == 0) cout << "" << endl;
+		for (auto it : ans) {
+			cout << it << " ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
